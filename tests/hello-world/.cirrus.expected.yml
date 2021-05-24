@@ -1,8 +1,0 @@
-task:
-  name: Hello World
-  container:
-    image: debian:latest
-    cpu: 2
-    memory: 4096
-  greeting_script:
-    - echo "Hello, World!"

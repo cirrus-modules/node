@@ -1,11 +1,12 @@
-load("github.com/cirrus-modules/helpers", "task", "container", "script")
+load("github.com/cirrus-modules/helpers", "task", "container", "script", "cache")
 
 
-def hello_world():
+def node_script_task():
     return task(
-        name="Hello World",
-        instance=container("debian:latest"),
+        name="test",
+        instance=container("node:latest"),
         instructions=[
-            script("greeting", "echo \"Hello, World!\""),
+            cache("node_modules", "node_modules", ["cat package-lock.json"], ["npm ci"]),
+            script("test", "npm run test"),
         ],
     )
