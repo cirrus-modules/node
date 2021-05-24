@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "bootstrap": "relay"
+  }
+}

@@ -1,0 +1,16 @@
+task:
+  name: test
+  container:
+    image: node:latest
+    cpu: 2
+    memory: 4096
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script:
+      - cat package-lock.json
+    populate_script:
+      - npm ci
+  bootstrap_script:
+    - npm run bootstrap
+  test_script:
+    - npm run test
